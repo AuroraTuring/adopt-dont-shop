@@ -1,5 +1,7 @@
 <p>Name: <%= @application.name %>
 <br>Full Address: <%= @application.address %>
 <br>Description: <%= @application.description %>
-<br>All Pets: <%= @application.all_pets %>
+<br>All Pets: <% @application.pets.each do |pet| %>
+  <%= pet.name %>
+<% end %>
 <br>Application Status: <%= @application.status %></p>
