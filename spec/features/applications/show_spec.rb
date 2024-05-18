@@ -37,6 +37,8 @@ RSpec.describe 'applications show page' do
 
         fill_in 'pet_name', with: 'Buddy'
 
+        click_button 'Add Pet'
+
         expect(page).to have_content(@application1.pets.name)
 
         # As a visitor

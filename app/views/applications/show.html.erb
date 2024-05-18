@@ -5,3 +5,13 @@
   <%= pet.name %>
 <% end %>
 <br>Application Status: <%= @applications.status %></p>
+
+<% if @applications.status != "Submitted" %>
+  <%= "Add a Pet to this Application" %>
+  <%= form_with url: '/pet_applications', method: :post, local: true do |form| %>
+    <br> <%= form.label :pet_name %>
+    <%= form.text_field :pet_name %>
+binding.pry
+    <br> <%= form.submit "Add Pet" %>
+      <% end %>
+<% end %>
