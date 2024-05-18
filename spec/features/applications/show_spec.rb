@@ -13,7 +13,7 @@ RSpec.describe 'applications show page' do
       it 'then I can see their attributes' do
         
         visit "/applications/#{@application1.id}"
-     
+
         expect(page).to have_content(@application1.name)
         expect(page).to have_content(@application1.address)
         expect(page).to have_content(@application1.state)
