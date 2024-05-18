@@ -26,8 +26,8 @@ vet2 = Veterinarian.create!(name: "Dr. Jones", review_rating: 4, on_call: false,
 vet3 = Veterinarian.create!(name: "Dr. Brown", review_rating: 3, on_call: true, veterinary_office: vet_office1)
 
 # Applications
-application1 = Application.create!(name: "John Doe", address: "123 Elm St", description: "Looking for a friendly dog", status: "Pending")
-application2 = Application.create!(name: "Jane Smith", address: "456 Maple Ave", description: "Interested in a cat", status: "Approved")
+application1 = Application.create!(name: "John Doe", address: "123 Elm St", city: "Miami", state: "FL", zip: "89494", description: "Looking for a friendly dog", status: "Pending")
+application2 = Application.create!(name: "Jane Smith", address: "456 Maple Ave", city: "Denver", state: "CO", zip: "12321", description: "Interested in a cat", status: "Approved")
 
 # Pet Applications
 PetApplication.create!(pet: pet1, application: application1)

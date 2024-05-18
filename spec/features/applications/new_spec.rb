@@ -1,20 +1,3 @@
-	# As a visitor
-	# When I visit the pet index page
-	# Then I see a link to "Start an Application"
-	# When I click this link
-	# Then I am taken to the new application page where I see a form
-	# When I fill in this form with my:
-	#   - Name
-	#   - Street Address
-	#   - City
-	#   - State
-	#   - Zip Code
-	#   - Description of why I would make a good home
-	# And I click submit
-	# Then I am taken to the new application's show page
-	# And I see my Name, address information, and description of why I would make a good home
-	# And I see an indicator that this application is "In Progress"
-
 	require 'rails_helper'
 
 	RSpec.describe 'application new page' do
@@ -31,8 +14,6 @@
 				it 'then I see a link to "Start an Application"' do
 					
 					visit "/pets"
-					
-					save_and_open_page
 
 					expect(page).to have_link("Start an Application")
 				end
@@ -48,11 +29,22 @@
 			end
 
 			describe 'when I visit the application new page' do
-				fill_in "application[name]", with: "Billy"
-				fill_in "application[address]", with: "1234 Example Street"
-				fill_in "application[city]", with: "Fake City"
-				fill_in "application[state]", with: "Faketucky"
-				fill_in "application[]", with: "Artemy"
+				it "when I am taken to the new application page, I see a form" do
+
+					visit "/applications/#{@application1.id}/new"
+
+					fill_in "application[name]", with: "Billy"
+					fill_in "application[address]", with: "1234 Example Street"
+					fill_in "application[city]", with: "Fake City"
+					fill_in "application[state]", with: "Faketucky"
+					fill_in "application[zip]", with: "123654"
+					fill_in "application[description]"
+
+				end
+
+				it "" do
+
+				end
 
 				#   - Name
 				#   - Street Address

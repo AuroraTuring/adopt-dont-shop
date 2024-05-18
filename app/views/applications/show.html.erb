@@ -1,5 +1,5 @@
 <p>Name: <%= @applications.name %>
-<br>Full Address: <%= @applications.address %>
+<br>Full Address: <%= @applications.address %>, <%= @applications.city %>, <%= @applications.state %> <%= @applications.zip %>
 <br>Description: <%= @applications.description %>
 <br>All Pets: <% @applications.pets.each do |pet| %>
   <%= pet.name %>
