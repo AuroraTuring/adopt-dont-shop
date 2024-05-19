@@ -1,7 +1,22 @@
-<p>Name: <%= @applications.name %>
-<br>Full Address: <%= @applications.address %>, <%= @applications.city %>, <%= @applications.state %> <%= @applications.zip %>
-<br>Description: <%= @applications.description %>
-<br>All Pets: <% @applications.pets.each do |pet| %>
+<p>Name: <%= @application.name %>
+<br>Full Address: <%= @application.address %>, <%= @application.city %>, <%= @application.state %> <%= @application.zip %>
+<br>Description: <%= @application.description %>
+<br>All Pets: <% @application.pets.each do |pet| %>
   <%= pet.name %>
 <% end %>
-<br>Application Status: <%= @applications.status %></p>
+<br>Application Status: <%= @application.status %></p>
+
+<% if @application.status == "In Progress" %>
+  <%= "Add a Pet to this Application" %>
+  <%= form_with url: "/applications/#{@application.id}", method: :get, local: true do |form| %>
+    <br> <%= form.label :pet_name %>
+    <%= form.text_field :pet_name %>
+
+    <br> <%= form.submit "Search" %>
+  <% end %>
+  <% if params[:pet_name] %>
+    <% @pets.each do |pet| %>
+      <p><%= pet.name %><%= button_to "Adopt This Pet", "/applications/#{@application.id}/pet_applications", method: :post, params: {pet_id: pet.id} %></p>
+    <% end %>
+  <% end %>
+<% end %>
