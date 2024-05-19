@@ -6,7 +6,6 @@ RSpec.describe 'applications show page' do
     @pet1 = @shelter1.pets.create!(name: 'Buddy', breed: 'Golden Retriever', age: 3, adoptable: true)
     @application1 = Application.create!(name: 'John Doe', address: '123 Elm St', city: 'Denver', state: 'CO',
                                         zip: '12345', description: 'Looking for a friendly dog', status: 'In Progress')
-    # PetApplication.create!(pet: @pet1, application: @application1)
   end
 
   describe 'as a visitor' do
