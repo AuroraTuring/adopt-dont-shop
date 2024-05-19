@@ -37,7 +37,7 @@ RSpec.describe 'applications show page' do
 
         fill_in 'pet_name', with: 'Buddy'
 
-        click_button 'Submit'
+        click_button 'Search'
 
         expect(page).to have_content('Buddy')
       end
@@ -47,7 +47,7 @@ RSpec.describe 'applications show page' do
 
         fill_in 'pet_name', with: 'Buddy'
 
-        click_button 'Submit'
+        click_button 'Search'
 
         expect(page).to have_button('Adopt This Pet')
         click_button 'Adopt This Pet'
