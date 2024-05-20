@@ -67,10 +67,16 @@ RSpec.describe 'applications show page' do
         expect(page).to have_button('Submit')
 
         click_button 'Submit'
-        save_and_
+
         expect(page).to have_content('Description: I like Turtles')
         expect(current_path).to eq("/applications/#{@application1.id}")
         expect(page).to have_content('Pending')
+      end
+
+      it 'will not give the option to submit an application if there are no pets' do
+        visit "/applications/#{@application1.id}"
+
+        expect(page).to_not have_content('Submit')
       end
     end
   end
