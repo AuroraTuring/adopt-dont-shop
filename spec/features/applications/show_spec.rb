@@ -67,7 +67,7 @@ RSpec.describe 'applications show page' do
         expect(page).to have_button('Submit')
 
         click_button 'Submit'
-        # save_and_open_page
+        save_and_
         expect(page).to have_content('Description: I like Turtles')
         expect(current_path).to eq("/applications/#{@application1.id}")
         expect(page).to have_content('Pending')
@@ -75,7 +75,3 @@ RSpec.describe 'applications show page' do
     end
   end
 end
-
-# And I see an indicator that the application is "Pending"
-# And I see all the pets that I want to adopt
-# And I do not see a section to add more pets to this application

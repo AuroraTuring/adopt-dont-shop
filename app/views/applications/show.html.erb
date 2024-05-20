@@ -21,9 +21,9 @@
   <% end %>
 <% end %>
 
-<% if @application.pets.count > 0 %>
+<% if @application.pets.count > 0 && @application.status == "In Progress"%>
   <%= "Submit Application" %>
-  <%= form_with url: "/applications/#{@application.id}", method: :patch, params: {application_id: @application.id}, local: true do |form| %>
+  <%= form_with url: "/applications/#{@application.id}?status=Pending", method: :patch, params: {application_id: @application.id}, local: true do |form| %>
     <br> <%= form.label "Why I would make a good owner:" %>
     <%= form.text_field :description %>
 
