@@ -1,18 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe Application, type: :model do
+RSpec.describe PetApplication, type: :model do
   describe 'relationships' do
-    it { should have_many(:pet_applications) }
-    it { should have_many(:pets, through: :pet_applications) }
+    it { should have_many(:applications) }
+    it { should have_many(:pets) }
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:adress) }
-    it { should validate_presence_of(:city) }
-    it { should validate_numericality_of(:state) }
-    it { should validate_numericality_of(:zip) }
-    it { should validate_numericality_of(:description) }
+    it { should validate_presence_of(:application_id) }
+    it { should validate_presence_of(:pet_id) }
   end
 
   before(:each) do
@@ -26,7 +22,7 @@ RSpec.describe Application, type: :model do
                                         zip: '12345', description: 'Looking for a friendly dog', status: 'In Progress')
   end
 
-  describe 'class methods' do
+  describe 'class methods ' do
     it '' do
     end
   end

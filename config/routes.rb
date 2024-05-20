@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get '/applications/new', to: 'applications#new'
   get '/applications/:id', to: 'applications#show'
   post '/applications', to: 'applications#create'
+  patch '/applications/:id', to: 'applications#update'
 
   get '/pet_applications/new', to: 'pet_applications#new'
-  post 'applications/:application_id/pet_applications', to: 'pet_applications#create'
+  post '/applications/:application_id/pet_applications', to: 'pet_applications#create'
 
   get '/shelters', to: 'shelters#index'
   get '/shelters/new', to: 'shelters#new'
