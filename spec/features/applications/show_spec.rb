@@ -80,4 +80,23 @@ RSpec.describe 'applications show page' do
       end
     end
   end
+
+  # As a visitor
+  # When I visit an application show page
+  # And I search for Pets by name
+  # Then I see any pet whose name PARTIALLY matches my search
+  describe 'as a visitor' do
+    describe 'when I visit an application show page' do
+      describe 'and I search for Pets by name' do
+        it 'then I see any pet whose name PARTIALLY matches my search' do
+          visit "/applications/#{@application1.id}"
+
+          fill_in 'pet_name', with: 'bud'
+          click_button 'Search'
+
+          expect(page).to have_content("Buddy")
+        end
+      end
+    end
+  end
 end
