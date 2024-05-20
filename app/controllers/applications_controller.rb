@@ -19,4 +19,22 @@ class ApplicationsController < ApplicationController
       flash[:alert] = "Error: #{error_message(@application.errors)}"
     end
   end
+
+  def update
+    application = Application.find(params[:id])
+    if application.update(application_params)
+      application_params[:status] = 'Pending'
+
+      redirect_to "/applications/#{application.id}"
+    else
+      redirect_to "/applications/#{application.id}"
+      flash[:alert] = "Error: #{error_message(shelter.errors)}"
+    end
+  end
+
+  private
+
+  def application_params
+    params.permit(:id, :name, :address, :description, :status)
+  end
 end

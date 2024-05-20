@@ -20,3 +20,13 @@
     <% end %>
   <% end %>
 <% end %>
+
+<% if @application.pets.count > 0 %>
+  <%= "Submit Application" %>
+  <%= form_with url: "/applications/#{@application.id}", method: :patch, params: {application_id: @application.id}, local: true do |form| %>
+    <br> <%= form.label "Why I would make a good owner:" %>
+    <%= form.text_field :description %>
+
+    <br> <%= form.submit "Submit" %>
+  <% end %>
+<% end %>
