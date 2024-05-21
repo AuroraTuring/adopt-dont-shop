@@ -91,6 +91,20 @@ RSpec.describe 'applications show page' do
         it 'then I see any pet whose name PARTIALLY matches my search' do
           visit "/applications/#{@application1.id}"
 
+          fill_in 'pet_name', with: 'Bud'
+          click_button 'Search'
+
+          expect(page).to have_content("Buddy")
+        end
+
+        # As a visitor
+        # When I visit an application show page
+        # And I search for Pets by name
+        # Then my search is case insensitive
+        # For example, if I search for "fluff", my search would match pets with names "Fluffy", "FLUFF", and "Mr. FlUfF"
+        it 'then my search is case insensitive' do
+          visit "/applications/#{@application1.id}"
+
           fill_in 'pet_name', with: 'bud'
           click_button 'Search'
 
