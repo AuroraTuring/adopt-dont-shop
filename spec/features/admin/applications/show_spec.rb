@@ -6,13 +6,14 @@ RSpec.describe 'application show' do
     @pet1 = @shelter1.pets.create!(name: 'Buddy', breed: 'Golden Retriever', age: 3, adoptable: true)
     @application1 = Application.create!(name: 'John Doe', address: '123 Elm St', city: 'Denver', state: 'CO',
                                         zip: '12345', description: 'Looking for a friendly dog', status: 'In Progress')
+    PetApplication.create!(pet: @pet1, application: @application1)
   end
 
   describe 'as a visitor' do
     it 'there is a button to reject an application' do
       visit "/admin/applications/#{@application1.id}"
-
-      expect(page).to have_content('Reject Application')
+      save_and_open_page
+      expect(page).to have_content("Reject #{@pet1.name}")
     end
   end
 end
