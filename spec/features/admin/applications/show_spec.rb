@@ -15,6 +15,14 @@ RSpec.describe 'application show' do
 
       expect(page).to have_content("Reject #{@pet1.name}")
     end
+
+    it 'when a pet is rejected from an application there is a status of rejected and button to reject is gone' do
+      visit "/admin/applications/#{@application1.id}"
+      expect(page).to_not have_content('Rejected')
+      click_button "Reject #{@pet1.name}"
+
+      expect(page).to have_content('Rejected')
+    end
   end
 end
 # As a visitor
