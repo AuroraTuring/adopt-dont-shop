@@ -1,4 +1,4 @@
-<h3> <%= link_to "Home", "/" %> </h3> 
+<%= render partial: "home_link" %>
 
 <p>Name: <%= @application.name %>
 <br>Full Address: <%= @application.address %>, <%= @application.city %>, <%= @application.state %> <%= @application.zip %>

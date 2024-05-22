@@ -1,4 +1,4 @@
-<h3> <%= link_to "Home", "/" %> </h3> 
+<%= render partial: "home_link" %>
 
 <h1><%= @veterinary_office.name %></h1>
 <p>Max patient capacity: <%= @veterinary_office.max_patient_capacity %></p>

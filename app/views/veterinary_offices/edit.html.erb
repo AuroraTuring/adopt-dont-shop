@@ -1,4 +1,4 @@
-<h3> <%= link_to "Home", "/" %> </h3> 
+<%= render partial: "home_link" %> 
 
 <h1>Edit Shelter</h1>
 <%= form_with url: "/veterinary_offices/#{@vet_office.id}", method: :patch, local: true do |f| %>
