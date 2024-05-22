@@ -110,8 +110,10 @@ RSpec.describe "the shelters index" do
     end
 
     it "has a list of shelters with pending applications"
+
+    end
         
-  
+    #New tests from Aurora
     describe 'as a visitor' do
         describe 'when I visit the admin shelter index ("/admin/shelters")' do
             it 'then I see all Shelters in the system listed in reverse alphabetical order by name' do
