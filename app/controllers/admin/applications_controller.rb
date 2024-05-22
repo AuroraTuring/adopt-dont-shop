@@ -6,11 +6,16 @@ class Admin::ApplicationsController < ApplicationController
 
   def update
     @application = Application.find(params[:id])
-    if @application.update(application_params)
+    @pet_application = PetApplication.find(params[:id])
+    if @pet_application.update(pet_application_params)
       redirect_to "/admin/applications/#{@application.id}"
     else
       redirect_to "/admin/applications/#{@application.id}"
-      flash[:alert] = "Error: #{error_message(shelter.errors)}"
+      flash[:alert] = "Error: #{error_message(@pet_application.errors)}"
     end
+  end
+
+  def pet_application_params
+    params.permit(:id, :application_id, :pet_id, :status)
   end
 end

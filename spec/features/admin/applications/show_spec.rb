@@ -6,7 +6,7 @@ RSpec.describe 'application show' do
     @pet1 = @shelter1.pets.create!(name: 'Buddy', breed: 'Golden Retriever', age: 3, adoptable: true)
     @application1 = Application.create!(name: 'John Doe', address: '123 Elm St', city: 'Denver', state: 'CO',
                                         zip: '12345', description: 'Looking for a friendly dog', status: 'In Progress')
-    PetApplication.create!(pet: @pet1, application: @application1)
+    PetApplication.create!(pet: @pet1, application: @application1, status: 'Pending')
   end
 
   describe 'as a visitor' do
@@ -19,8 +19,9 @@ RSpec.describe 'application show' do
     it 'when a pet is rejected from an application there is a status of rejected and button to reject is gone' do
       visit "/admin/applications/#{@application1.id}"
       expect(page).to_not have_content('Rejected')
-      click_button "Reject #{@pet1.name}"
 
+      click_button "Reject #{@pet1.name}"
+      save_and_open
       expect(page).to have_content('Rejected')
     end
   end

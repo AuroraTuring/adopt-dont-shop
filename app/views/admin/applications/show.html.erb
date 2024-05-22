@@ -7,8 +7,13 @@
 <br>Application Status: <%= @application.status %></p>
 
 <% if @application.pets.count > 0 %>
-<br><h2>All Pets:</h2> <% @application.pets.each do |pet| %>
-  <h3> <%= pet.name %> </h3>
-  <p> <%= button_to "Reject #{pet.name}", "/admin/applications/#{@application.id}?status=Rejected", method: :update %> </p>
+  <br><h2>All Pets:</h2>
+  <% @application.pets.each do |pet| %>
+    <h3><%= pet.name %></h3>
+    <% if binding.pry != 'Rejected' %>
+      <%= button_to "Reject #{pet.name}", "/admin/applications/#{@application.id}?status='Rejected'", method: :patch %>
+    <% else %>
+      <p>Rejected</p>
     <% end %>
+  <% end %>
 <% end %>
