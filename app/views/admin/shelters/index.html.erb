@@ -2,6 +2,13 @@
 
 <%= link_to "Sort by number of pets", "/shelters?sort=pet_count" %>
 
+<% @shelters.each_with_index do |shelter, index| %>
+  <div id="shelter-<%= index %>">
+    <h3><%= shelter.name %></h3>
+    <p>Created at: <%= shelter.created_at %></p>
+  </div>
+<% end %>
+
 <%= form_with url: "/shelters", method: :get, local: true do |f| %>
   <%= f.label :search %>
   <%= f.text_field :search %>
@@ -16,3 +23,5 @@
     <%= link_to "Delete #{shelter.name}", "/shelters/#{shelter.id}", method: :delete %>
   </div>
 <% end %>
+<h1>All Shelters:</h1>
+

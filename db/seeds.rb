@@ -8,7 +8,7 @@
 
 # Shelters
 shelter1 = Shelter.create!(foster_program: true, name: "Whimsy Whiskers", city: "Denver", rank: 42)
-shelter2 = Shelter.create!(foster_program: false, name: "Whimsy Whiskers", city: "Miami", rank: 42)
+shelter2 = Shelter.create!(foster_program: false, name: "Sandy Meows", city: "Miami", rank: 42)
 shelter3 = Shelter.create!(foster_program: true, name: "Meow Wows", city: "New York", rank: 42)
 
 # Pets

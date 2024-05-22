@@ -5,6 +5,9 @@ RSpec.describe "the shelters index" do
         @shelter_1 = Shelter.create(name: "Aurora shelter", city: "Aurora, CO", foster_program: false, rank: 9)
         @shelter_2 = Shelter.create(name: "RGV animal shelter", city: "Harlingen, TX", foster_program: false, rank: 5)
         @shelter_3 = Shelter.create(name: "Fancy pets of Colorado", city: "Denver, CO", foster_program: true, rank: 10)
+        @shelter1 = Shelter.create!(foster_program: true, name: "Whimsy Whiskers", city: "Denver", rank: 42)
+        @shelter2 = Shelter.create!(foster_program: true, name: "Meow Wows", city: "New York", rank: 42)
+        @shelter3 = Shelter.create!(foster_program: false, name: "Sandy Meows", city: "Miami", rank: 42)
         @shelter_1.pets.create(name: "Mr. Pirate", breed: "tuxedo shorthair", age: 5, adoptable: true)
         @shelter_1.pets.create(name: "Clawdia", breed: "shorthair", age: 3, adoptable: true)
         @shelter_3.pets.create(name: "Lucille Bald", breed: "sphynx", age: 8, adoptable: true)
@@ -108,5 +111,24 @@ RSpec.describe "the shelters index" do
 
     it "has a list of shelters with pending applications"
         
+  
+    describe 'as a visitor' do
+        describe 'when I visit the admin shelter index ("/admin/shelters")' do
+            it 'then I see all Shelters in the system listed in reverse alphabetical order by name' do
+                visit "/admin/shelters"
+
+                within "#shelter-0" do
+                expect(page).to have_content("Whimsy Whiskers")
+                end
+
+                within "#shelter-1" do
+                expect(page).to have_content("Sandy Meows")
+                end
+
+                within "#shelter-2" do
+                expect(page).to have_content("Meow Wows")
+                end
+            end
+        end
     end
 end
