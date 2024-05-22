@@ -20,8 +20,8 @@ RSpec.describe 'application show' do
       visit "/admin/applications/#{@application1.id}"
       expect(page).to_not have_content('Rejected')
 
-      click_button "Reject #{@pet1.name}"
-      save_and_open
+      click_button 'Reject'
+      save_and_open_page
       expect(page).to have_content('Rejected')
     end
   end

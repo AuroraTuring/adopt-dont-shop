@@ -10,8 +10,8 @@
   <br><h2>All Pets:</h2>
   <% @application.pets.each do |pet| %>
     <h3><%= pet.name %></h3>
-    <% if binding.pry != 'Rejected' %>
-      <%= button_to "Reject #{pet.name}", "/admin/applications/#{@application.id}?status='Rejected'", method: :patch %>
+    <% if pet.pet_applications[0].status != 'Rejected' %>
+      <%= button_to "Reject", "/admin/applications/#{@application.id}?status='Rejected'", method: :patch,params: {pet_application_id: pet.pet_applications[0].id} %>
     <% else %>
       <p>Rejected</p>
     <% end %>

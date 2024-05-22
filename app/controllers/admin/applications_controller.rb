@@ -6,7 +6,7 @@ class Admin::ApplicationsController < ApplicationController
 
   def update
     @application = Application.find(params[:id])
-    @pet_application = PetApplication.find(params[:id])
+    @pet_application = PetApplication.find(params[:pet_application_id])
     if @pet_application.update(pet_application_params)
       redirect_to "/admin/applications/#{@application.id}"
     else
