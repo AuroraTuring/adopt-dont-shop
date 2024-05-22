@@ -12,7 +12,7 @@ RSpec.describe 'application show' do
   describe 'as a visitor' do
     it 'there is a button to reject an application' do
       visit "/admin/applications/#{@application1.id}"
-      save_and_open_page
+
       expect(page).to have_content("Reject #{@pet1.name}")
     end
   end
