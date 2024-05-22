@@ -32,6 +32,6 @@ application2 = Application.create!(name: 'Jane Smith', address: '456 Maple Ave',
                                    zip: '12321', description: 'Interested in a cat', status: 'Approved')
 
 # Pet Applications
-PetApplication.create!(pet: pet1, application: application1, status: 'pending')
-PetApplication.create!(pet: pet2, application: application2, status: 'pending')
-PetApplication.create!(pet: pet3, application: application1, status: 'pending')
+PetApplication.create!(pet: pet1, application: application1, status: :Pending)
+PetApplication.create!(pet: pet2, application: application2, status: :Pending)
+PetApplication.create!(pet: pet3, application: application1, status: :Pending)

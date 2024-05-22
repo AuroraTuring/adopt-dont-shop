@@ -8,12 +8,13 @@
 
 <% if @application.pets.count > 0 %>
   <br><h2>All Pets: </h2>
-  <% @pet_applications.each do |pet_app| %>
+  <% @application.pet_applications.each do |pet_app| %>
     <%= pet_app.pet.name %>
     <% if pet_app.status == "Pending" %>
       <%= button_to "Reject", "/admin/applications/#{@application.id}?status=Rejected", method: :patch, params: {pet_application_id: pet_app.id} %>
       <%= button_to "Approve", "/admin/applications/#{@application.id}?status=Approved", method: :patch, params: {pet_application_id: pet_app.id} %>
+    <% else %>
+      <p><%= pet_app.status.to_s %></p>
     <% end %>
-  <p><%= pet_app.status.to_s %></p>
   <% end %>
 <% end %>

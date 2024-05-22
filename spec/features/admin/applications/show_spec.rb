@@ -41,6 +41,3 @@ RSpec.describe 'application show' do
     end
   end
 end
-# Then I'm taken back to the admin application show page
-# And next to the pet that I rejected, I do not see a button to approve or reject this pet
-# And instead I see an indicator next to the pet that they have been rejected
