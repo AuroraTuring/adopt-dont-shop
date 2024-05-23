@@ -10,9 +10,6 @@ class Admin::ApplicationsController < ApplicationController
     @pet_application = @application.pet_applications.find_by(params[:pet_id])
     if @pet_application.update(status: params[:status])
       redirect_to "/admin/applications/#{@application.id}"
-    else
-      redirect_to "/admin/applications/#{@application.id}"
-      flash[:alert] = "Error: #{error_message(@pet_application.errors)}"
     end
   end
 end

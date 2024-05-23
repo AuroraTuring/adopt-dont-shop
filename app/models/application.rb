@@ -3,7 +3,7 @@ class Application < ApplicationRecord
   validates :address, presence: true
   validates :city, presence: true
   validates :state, presence: true
-  validates :zip, presence: true
+  validates :zip, presence: true, numericality: true
   validates :description, presence: true
 
   has_many :pet_applications
