@@ -13,9 +13,14 @@ RSpec.describe 'application show' do
   end
 
   describe 'as a visitor' do
+    it 'has a link to the user view' do
+      expect(page).to have_link("User View")
+    end
+
     it 'there is a button to reject an application' do
       visit "/admin/applications/#{@application1.id}"
 
+      expect(page).to have_content("Reject")
       expect(page).to have_content("Reject")
     end
 
