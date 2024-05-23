@@ -1,3 +1,5 @@
+<%= render partial: "user_view" %>
+
 <h1>All Shelters:</h1>
 
 <% @shelters.each_with_index do |shelter, index| %>
@@ -5,4 +7,9 @@
     <h3><%= shelter.name %></h3>
     <p>Created at: <%= shelter.created_at %></p>
   </div>
+<% end %>
+
+<h2> Shelters with Pending Applications </h2>
+<% @applications.each do |shelter| %> 
+  <h3> <%= shelter.name %> </h3>
 <% end %>
