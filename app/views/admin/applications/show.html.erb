@@ -1,4 +1,4 @@
-<%= render partial: "user_view" %>
+<%= render partial: "user_view", locals: { application: @application } %>
 
 <p>Name: <%= @application.name %>
 <br>Full Address: <%= @application.address %>, <%= @application.city %>, <%= @application.state %> <%= @application.zip %>

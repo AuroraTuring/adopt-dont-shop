@@ -14,6 +14,8 @@ RSpec.describe 'application show' do
 
   describe 'as a visitor' do
     it 'has a link to the user view' do
+      visit "/admin/applications/#{@application1.id}"
+      
       expect(page).to have_link("User View")
     end
 
