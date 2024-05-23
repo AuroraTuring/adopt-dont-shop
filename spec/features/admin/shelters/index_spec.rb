@@ -7,9 +7,9 @@ RSpec.describe 'admin shelter index' do
     @shelter3 = Shelter.create!(foster_program: false, name: 'Sandy Meows', city: 'Miami', rank: 42)
 
     @application1 = Application.create!(name: 'John Doe', address: '123 Elm St', city: 'Miami', state: 'FL', zip: '89494',
-                                   description: 'Looking for a friendly dog', status: 'Pending')
+                                        description: 'Looking for a friendly dog', status: 'Pending')
     @application2 = Application.create!(name: 'Jane Smith', address: '456 Maple Ave', city: 'Denver', state: 'CO',
-                                   zip: '12321', description: 'Interested in a cat', status: 'Pending')
+                                        zip: '12321', description: 'Interested in a cat', status: 'Pending')
   end
 
   describe 'as a visitor' do
